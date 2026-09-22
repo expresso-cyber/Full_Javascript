@@ -1,101 +1,170 @@
-console.log("Hello")
+/* ==========================================================================
+   SESSION 1: JAVASCRIPT VARIABLES, SCOPE RULES & DATA TYPES
+   ========================================================================== */
 
-// ! Variables in js
+console.log("=== SESSION 1: VARIABLES & DATA TYPES ===");
 
-// ~ var, let , const
+// ==========================================================================
+// 1. VARIABLE DECLARATION & INITIALIZATION
+// ==========================================================================
 
-// ? Declaration: Standalone declaration (without initialization) works only with var and let
-// Note: A declaration is like reserving a table at a restaurant or naming a new folder on your computer.You are telling the computer, "Hey, I am creating a box. Its name is userAge. Please remember this name because I will put a value inside it later." At this stage, the box is empty—you are just claiming the name so no one else can use it.
-// * Definition 1: A declaration is simply telling the computer that a variable exists and giving it a name.
-// * Definition 2: A declaration is a statement that introduces an identifier (the variable name) into a program's scope and allocates a slot for it in the execution context.
-var a;
-let b;
+/* 
+ * CONCEPT: Variable Declaration
+ * 
+ * Simple Words Definition: 
+   Telling the computer that a variable exists and giving it a name (reserving an empty box).
+ * 
+ * Interview Prep Definition: 
+   An instruction introducing an identifier into a scope and allocating a slot for 
+   it in the execution context's lexical environment prior to value evaluation.
+ */
 
-
-// ? Note:
-const c = 10; // We cannot simply declare a constant variable without initialization; we must declare + initialize at the same time, otherwise it will throw: "SyntaxError: Missing initializer in const declaration"
-
-
-// ? Initialization
-// * Definition: In computer programming, initialization is the process of assigning an initial (first) value to a variable, object, or data structure at the time it is created
-a = 10
-b = 20
-
-
-
-// ? Declaration + Initialization
-var x = 70
-let y = 20
-const z = 43
-
-// ? re-declaration, we can re-declare only var variable not let, const
-var x = 40
+// Standalone declarations (without initialization) work only with var and let
+var a; // Function-scoped (hoisted as undefined)
+let b; // Block-scoped (resides in Temporal Dead Zone until initialized)
 
 
-// ? re-assignment, we can re-assign var and let variable not const
-x = 66
-y = 44
+/* 
+ * CONCEPT: Constant Variable Requirement
+ * 
+ * Simple Words Definition: 
+   A 'const' variable cannot be created empty; it must be assigned a value immediately.
+ * 
+ * Interview Prep Definition: 
+   Constants must be initialized at declaration time. Omitting initialization raises a 
+   SyntaxError ("Missing initializer in const declaration") at parse time.
+ */
+
+const c = 10; // Must declare and initialize at the same time
+
+/* 
+ * CONCEPT: Variable Initialization
+ * 
+ * Simple Words Definition: 
+   Assigning the very first value to a variable that was previously declared.
+ * 
+ * Interview Prep Definition: 
+   The initial binding of a value to an allocated memory address during execution context setup.
+ */
+
+a = 10;
+b = 20;
 
 
-// ! Data Types - Primitive and non- primitive
+/* 
+ * CONCEPT: Combined Declaration + Initialization
+ */
 
-// ^ Primitive data types: Primitive data types are basic, built-in types that hold a single, simple value. They are immutable (cannot be changed once created) and stored directly by their value.
-
-// ? a) string
-let str = "Hello" // Represents textual data enclosed in quotes
-
-
-// ? b) number 
-// Represents both integer and floating-point numeric values
-// * integer example
-let num = 56
-// * floating number , i.e, Decimal Number
-let num1 = 12.43
+var x = 70;
+let y = 20;
+const z = 43;
 
 
-// ? c) boolean 
-// Represents a logical entity with two values, true or false
+/* 
+ * CONCEPT: Re-declaration vs Re-assignment
+ * 
+ * Simple Words Definition: 
+   - Re-declaration: Creating a variable with the same name again (allowed ONLY for var).
+   - Re-assignment: Changing the value inside an existing variable (allowed for var and let).
+ * 
+ * Interview Prep Definition: 
+   - Re-declaration: Re-defining an identifier in the same lexical scope; disallowed for let/const.
+   - Re-assignment: Mutating the value binding of an identifier reference; disallowed for const.
+ */
 
-let isReady = true
-isReady = false
+// Re-declaration (Only allowed with 'var')
+var x = 40;
 
-// ? d) undefined 
-// Assigned to a variable that has been declared but not yet given a value.
+// Re-assignment (Allowed for 'var' and 'let', but NOT 'const')
+x = 66;
+y = 44;
+
+
+// ==========================================================================
+// 2. PRIMITIVE DATA TYPES
+// ==========================================================================
+
+/* 
+ * CONCEPT: Primitive Data Types
+ * 
+ * Simple Words Definition: 
+   Basic, single values that are immutable (cannot be altered directly in memory).
+ * 
+ * Interview Prep Definition: 
+   Data that is not an object and has no methods. Stored directly on the stack 
+   by value. There are 7 primitive data types in JavaScript.
+ */
+
+// a) String: Represents textual data enclosed in quotes
+let str = "Hello";
+
+// b) Number: Handles both integers and floating-point decimal numbers
+let num = 56;       // Integer
+let num1 = 12.43;   // Floating-point decimal
+
+// c) Boolean: Represents logical states (true or false)
+let isReady = true;
+isReady = false;
+
+// d) Undefined: Represents a variable that has been declared but not assigned a value
 let un;
 
-// ? e) null
-// Represents the intentional absence of any object value
-let nullVal = null
+// e) Null: Represents an intentional absence of any object value
+// Note: typeof null returns "object" due to a historical JavaScript bug
+let nullVal = null;
 
-// ? f) BigInt
-// Used for handling arbitrarily large integers beyond the safe limit of regular numbers (e.g., 9007199254740991n)
+// f) BigInt: Used for handling arbitrarily large integers beyond Number.MAX_SAFE_INTEGER
+let bigNum = 2342323534523453464575686785745n;
 
-let bigNum = 2342323534523453464575686785745n
-
-// ? g) Symbol
-// Used to create unique, anonymous primitive values (often as unique object keys)
-let sym = Symbol("id")
+// g) Symbol: Guaranteed unique and immutable primitive value, often used as unique object keys
+let sym = Symbol("id");
 
 
-// ^ Non-Primitive Data-types => Non-primitive data types (also called reference types) are more complex data structures that can store collections of values or functional entities. They are mutable (their internal data can be changed) and stored by reference in memory.
+// ==========================================================================
+// 3. NON-PRIMITIVE (REFERENCE) DATA TYPES
+// ==========================================================================
 
-// ~ array , object
+/* 
+ * CONCEPT: Non-Primitive / Reference Data Types
+ * 
+ * Simple Words Definition: 
+   Complex data structures (like lists or collections) that store multiple values.
+ * 
+ * Interview Prep Definition: 
+   Objects, Arrays, and Functions stored on the heap memory and accessed by memory reference. 
+   They are mutable—their properties/elements can be modified even when declared with 'const'.
+ */
 
-// arr 
-const arr = [1, 2, 3, 4, 5, 6, 6, 7]
+// Array: Ordered list of values
+const arr = [1, 2, 3, 4, 5, 6, 6, 7];
 
-// object
+// Object: Collection of key-value pairs
 const obj = {
     id: 4,
     key: 78
+};
+
+
+// ==========================================================================
+// 4. INTERACTIVE TASK: PROMPT INPUT ADDITION
+// ==========================================================================
+
+/* 
+ * CONCEPT: Explicit Type Casting with prompt()
+ * 
+ * Simple Words Definition: 
+   prompt() always returns user input as text (String). We must wrap it in Number() 
+   so JavaScript performs math addition instead of joining strings together.
+ * 
+ * Interview Prep Definition: 
+   The prompt() Web API returns a String primitive. Performing arithmetic operations 
+   requires explicit type coercion (e.g., Number(value)) to prevent trigger of 
+   the '+' operator's string concatenation overload.
+ */
+
+if (typeof prompt !== "undefined") {
+    let s = Number(prompt("Enter first number:"));
+    let g = Number(prompt("Enter second number:"));
+
+    console.log("Addition: ", s + g, "\nType of Number: ", typeof (s + g));
 }
-
-
-
-// ! Task: Add two number using prompt
-// Note: prompt() returns a string, so Number() is needed to prevent string concatenation
-let s = Number(prompt("Enter first number:"))
-let g = Number(prompt("Enter second number:"))
-
-
-console.log("Addition: ", s + g, "\nType of Number: ", typeof (s + g))
