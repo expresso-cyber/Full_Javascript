@@ -31,7 +31,6 @@ body{
 }
 
 .btn{
-    /* border: none;rgbargb(255, 255, 255), 255, 0.507) */
     border: 0.1px solid rgba(255, 255, 255, 0.612);
     height: 40px;
     border-radius: 5px;
@@ -56,24 +55,19 @@ body{
     font-size: 15px;
     outline: 0;
     border: none;
-    border-radius: 50px;
+    border-radius: 20px;
     border-bottom: 0.1px solid rgb(113, 112, 113);
     border-left: 0.1px dotted rgb(113, 112, 113);
     border-right: 0.1px dotted rgb(113, 112, 113);
     transform-origin: bottom;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.814);
+    background-color: rgba(236, 109, 109, 0.336);
     background: transparent;
-    border-bottom: 3px solid rgb(240, 131, 107);
-}
-
-.input:hover{
-    /* transition: 0.15s linear; */
-    filter:saturate(500%);
+    border-bottom: 2px solid rgb(134, 75, 149);
 }
 
 .input::placeholder{
-    color: rgba(136, 134, 132, 0.87);
+    color: rgba(104, 102, 100, 0.87);
 }
 
 .display{
@@ -95,3 +89,25 @@ body{
     border: 1px solid rgb(234, 122, 122);
 }
 
+/* @media screen and (max-width: 725px) {
+    .app-Inputs{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 8px;
+    }
+
+    h1{
+        font-size: 16px;
+    }
+
+    .main{
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+} */
+
+@media screen and (max-width: 693px){
+    .app-Inputs{
+        flex-wrap: wrap;
+    }
+}
