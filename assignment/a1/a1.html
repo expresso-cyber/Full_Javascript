@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1 - Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="a1.js" defer></script>
+</head>
+
+<body>
+    <!-- Calculator -->
+    <div class="main">
+        <h1>Simple Calc</h1>
+        <div class="app-Inputs">
+            <input type="text" id="num1" class="input" autofocus="true" placeholder="Num1: ">
+            <input type="text" id="num2" class="input" placeholder="Num2:">
+            <button id="add" class="btn" onclick="add()">Addition</button>
+            <button id="sub" class="btn" onclick="sub()">Subtraction</button>
+            <button id="mul" class="btn" onclick="mul()">Multiplication</button>
+            <button id="divide" class="btn" onclick="divide()">Division</button>
+            <button id="exponent" class="btn" onclick="exponent()">Exponential</button>
+            <button id="remainder" class="btn" onclick="remainder()">Remainder</button>
+            <button id="reset" class="btn" onclick="reset()">Reset</button>
+        </div>
+        <div class="display">
+            <p id="content"></p>
+        </div>
+    </div>
+</body>
+
+</html>
