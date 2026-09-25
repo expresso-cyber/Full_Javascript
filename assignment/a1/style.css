@@ -23,6 +23,31 @@ body{
     gap: 20px;
 }
 
+h1 {
+    text-align: center;
+    color: transparent;
+    background: linear-gradient(90deg,
+            rgb(7, 119, 156),
+            rgb(208, 98, 25));
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    transition: background-size 1s linear;
+    animation: fillText 2.5s linear infinite alternate;
+}
+
+@keyframes fillText {
+    from {
+        background-size: 0% 100%;
+    }
+
+    to {
+        background-size: 100% 100%;
+    }
+}
+
 .app-Inputs{
     width: 80%;
     gap: 15px;
