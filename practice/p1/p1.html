@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 1</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #main{
+            margin: 50px auto;
+            width: 80vw;
+            height: 80vh;
+            background-color: rgb(144, 210, 144);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        #para{
+            color: rgb(139, 69, 8);
+            font-family: 'Fira Code', monospace;
+            font-size: 40px;
+        }
+
+        #buttons{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .btn{
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgb(228, 104, 104);
+        }
+        
+        .btn1:active{
+            box-shadow: 2px 2px 2px white;
+        }
+
+        .btn2:active{
+            box-shadow: 2px 2px 2px white;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <p id="para">0</p>
+        <div id="buttons">
+            <button class="btn btn1" onclick="increment()">Increment</button>
+            <button class="btn btn2" onclick="decrement()">Decrement</button>
+        </div>
+    </div>
+
+    <script>
+        let defaultVal = 0
+
+        function increment(){
+            let text = document.getElementById('para')
+            defaultVal += 1
+            text.textContent = defaultVal
+        }
+        function decrement(){
+            let text = document.getElementById('para')
+            if(defaultVal<=0){
+                return 1;
+            }
+            defaultVal -= 1
+            text.textContent = defaultVal
+        }
+    </script>
+</body>
+</html>
