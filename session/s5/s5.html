@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 400px;
+            height: 400px;
+            background-color: grey;
+            margin: 50px auto;
+        }
+
+        #hey {
+            background-color: rgb(179, 122, 122);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="main">
+    </div> -->
+    <button id="btn" onclick="change()">Click to change</button>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4OAugpFArNot9ly2idC95xS6nXIYRISzIJYtTdoJDPw&s=10"
+        alt="" id="img" width="200px" height="200px">
+    <button id="reverse" onclick="reverse()">Reverse</button>
+
+    <script>
+        // let sDiv = document.getElementById('main')
+        // sDiv.innerHTML = "<div id=hey> Hey </div>"
+        // sDiv.style.color = "cyan"
+        // sDiv.style.borderLeft = "5px solid cyan"
+        // sDiv.style.borderRight = "5px solid purple"
+        // sDiv.style.borderBottom = "5px solid beige"
+        // sDiv.style.borderTop = "5px solid lightblue"
+
+        // let innerDiv = document.getElementById('hey')
+        // innerDiv.style.backgroundColor = "purple"
+        // innerDiv.style.fontSize = "35px"
+
+        //getAttribute
+
+        //setAttribute
+
+        function change() {
+            let image = document.getElementById('img')
+            image.style.transition = "1s linear"
+            image.setAttribute('src', 'https://media.istockphoto.com/id/1171712711/photo/supernova-explosion-in-space.jpg?s=612x612&w=0&k=20&c=7fwusg4bEZ47MWHKTudqAr6DZu3DhOfkowlPrl6d39E=')
+        }
+
+        function reverse() {
+            let image = document.getElementById('img')
+            image.style.transition = "1s linear"
+            image.setAttribute('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4OAugpFArNot9ly2idC95xS6nXIYRISzIJYtTdoJDPw&s=10')
+        }
+
+        // Array Methods
+
+        li = [11, 22, 33, 44, 55, 66]
+
+        li.push(345, 333)
+        console.log("Added two values using push()", li)
+
+        li.pop()
+        console.log("Deleted last value using pop()", li)
+
+        li.shift()
+        console.log("Removed first value using shift()", li)
+
+        li.unshift()
+        console.log("Get the first removed value using unshift()", li)
+
+        li.unshift()
+        console.log("To replace the first", li)
+
+
+        // SPLICE 
+
+        // add
+        li.splice(1, 0, 888)
+        console.log("Added using splice: ", li)
+
+        // delete
+        li.splice(1, 4)
+        console.log("delete using splice: ", li)
+
+        // replace
+        li.splice(1, 1, 345)
+        console.log("Replaced using splice: ", li)
+
+
+        // JOIN method
+
+        const str = li.join('_')
+        console.log("Join using _ => ", str)
+
+
+        // Reverse()
+
+        const rev = li.reverse()
+        console.log("Reverse => ", rev)
+
+        // sort()
+
+        const sortArray = ["1", '2', '3', '4', '5', '6']
+
+        // Q) access the second last element from the array
+
+        console.log(li[li.length - 2])
+
+
+
+        // For each method use different array list
+    </script>
+</body>
+
+</html>

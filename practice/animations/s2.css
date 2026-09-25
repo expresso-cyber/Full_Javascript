@@ -1,0 +1,127 @@
+/* h1 {
+    text-align: center;
+    color: transparent;
+    background: linear-gradient(90deg,
+            lightblue,
+            rgb(208, 25, 208));
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    transition: background-size 1s linear;
+    animation: fillText 4s linear infinite alternate;
+}
+
+@keyframes fillText {
+    from{
+        background-size: 0% 100%;
+    }
+    to{
+        background-size: 100% 100%;
+    }
+} */
+
+h1 {
+    text-align: center;
+    position: relative;
+    /* transition: background-position 1s linear; */
+    /* animation: LtoR 0.25s linear infinite alternate ; */
+}
+
+/* h1::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    background: linear-gradient(90deg,
+                black 0%,
+                black 35%,
+                lightblue 45%,
+                rgb(208, 25, 208) 55%,
+                black 65%,
+                black 100%);
+    
+    background-size: 250% 100%;
+    background-position: 100% 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: LtoR 1s linear infinite alternate;
+}
+
+@keyframes LtoR {
+    from{
+        background-position: 100% 0;
+    }
+    to{
+        background-position: 0% 0;
+    }
+} */
+h1 {
+    position: relative;
+    text-align: center;
+    color: black;
+}
+
+/* Gradient text layer */
+h1::after {
+    content: attr(data-text);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(90deg,
+            black 0%,
+            black 35%,
+            lightblue 45%,
+            rgb(208, 25, 208) 55%,
+            black 65%,
+            black 100%);
+
+    background-size: 250% 100%;
+    background-position: 100% 0;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    pointer-events: none;
+
+    animation: LtoR 1s linear infinite alternate;
+}
+
+@keyframes LtoR {
+    from {
+        background-position: 100% 0;
+    }
+
+    to {
+        background-position: 0% 0;
+    }
+}
+/* h1::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(lightblue, rgb(208, 25, 208));
+    background-clip: text;
+    -moz-background-clip: text;
+    transform-origin: left;
+    color: transparent;
+    transform: scaleX(0);
+    transition: transform 1s linear;
+}
+
+h1:hover::after{
+    transform: scaleX(1);
+} */
+

@@ -1,0 +1,28 @@
++------------------------------------------------------------------------------------------------------------------+
+|                                      JAVASCRIPT SESSION 1: EXECUTION ENGINE                                       |
++--------------------------------------------------------+---------------------------------------------------------+
+                                                         |
+        +------------------------------------------------+------------------------------------------------+
+        |                                                |                                                |
+        v                                                v                                                v
++---------------+                                +---------------+                                +---------------+
+| 1. VARIABLES  |                                | 2. DATA TYPES |                                | 3. USER INPUT |
++---------------+                                +---------------+                                +---------------+
+        |                                                |                                                |
+        +---> [var]                                      +---> [Primitives (Stack / Value)]               +---> prompt()
+        |     ├── Scope: Function                        |     ├── String ("Hello")                       |     └── Returns: String ("10")
+        |     ├── Hoisted: Yes (undefined)               |     ├── Number (56, 12.43)                     |             |
+        |     ├── Redeclare: YES                         |     ├── Boolean (true/false)                   +---> Conversion Check
+        |     └── Reassign:  YES                         |     ├── Undefined (declared, unassigned)       |     ├── NO  -> "10"+"20" = "1020"
+        |                                                |     ├── Null (intentional empty)               |     │          (Concatenation)
+        +---> [let]                                      |     |   └── typeof null = "object" (Bug)       |     └── YES -> Number("10") = 10
+        |     ├── Scope: Block                           |     ├── BigInt (234...n)                       |                (Numeric Coercion)
+        |     ├── Hoisted: Temporal Dead Zone            |     └── Symbol (Symbol("id"))                  |             |
+        |     ├── Redeclare: NO (SyntaxError)            |                                                +---> Operation
+        |     └── Reassign:  YES                         +---> [Reference Types (Heap / Ref)]             |     ├── 10 + 20 = 30
+        |                                                      ├── Array ([1, 2, 3])                      |     ├── console.log(30)
+        +---> [const]                                          └── Object ({ id: 4, key: 78 })             |     └── typeof 30 = "number"
+              ├── Scope: Block                                                                            +--------------------------------
+              ├── Requires Initializer: YES
+              ├── Redeclare: NO (SyntaxError)
+              └── Reassign:  NO (TypeError)
