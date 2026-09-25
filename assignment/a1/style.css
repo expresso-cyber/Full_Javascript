@@ -34,7 +34,7 @@ h1 {
     background-size: 0% 100%;
     background-repeat: no-repeat;
     background-position: left center;
-    transition: background-size 1s linear;
+    transition: background-size,text-shadow 1s linear;
     animation: fillText 2.5s linear infinite alternate;
 }
 
@@ -45,7 +45,7 @@ h1 {
 
     to {
         background-size: 100% 100%;
-        text-shadow: 3px 3px 10px white;
+        text-shadow: 3px 3px 5px rgba(255, 255, 255, 0.622);
     }
 }
 
