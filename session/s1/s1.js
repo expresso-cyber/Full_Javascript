@@ -22,6 +22,7 @@ console.log("=== SESSION 1: VARIABLES & DATA TYPES ===");
 // Standalone declarations (without initialization) work only with var and let
 var a; // Function-scoped (hoisted as undefined)
 let b; // Block-scoped (resides in Temporal Dead Zone until initialized)
+console.log(b);
 
 
 /* 
