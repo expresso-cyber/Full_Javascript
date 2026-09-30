@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Session 4: DOM Manipulation & Array Methods</title>
     <style>
         #main {
             width: 400px;
             height: 400px;
             background-color: grey;
             margin: 50px auto;
+            padding: 10px;
         }
 
         #hey {
@@ -20,99 +21,238 @@
 </head>
 
 <body>
-    <!-- <div id="main">
-    </div> -->
-    <button id="btn" onclick="change()">Click to change</button>
+    <!-- DOM Container Element -->
+    <div id="main"></div>
+
+    <!-- DOM Buttons and Image for Event Testing -->
+    <button id="btn" onclick="changeImage()">Click to change</button>
+
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4OAugpFArNot9ly2idC95xS6nXIYRISzIJYtTdoJDPw&s=10"
-        alt="" id="img" width="200px" height="200px">
-    <button id="reverse" onclick="reverse()">Reverse</button>
+        alt="Space Sample" id="img" width="200px" height="200px">
+
+    <button id="reverse" onclick="reverseImage()">Reverse</button>
 
     <script>
-        // let sDiv = document.getElementById('main')
-        // sDiv.innerHTML = "<div id=hey> Hey </div>"
-        // sDiv.style.color = "cyan"
-        // sDiv.style.borderLeft = "5px solid cyan"
-        // sDiv.style.borderRight = "5px solid purple"
-        // sDiv.style.borderBottom = "5px solid beige"
-        // sDiv.style.borderTop = "5px solid lightblue"
+        /* ==========================================================================
+           SESSION 4: DOM MANIPULATION, ATTRIBUTES, & ARRAY METHODS
+           ========================================================================== */
 
-        // let innerDiv = document.getElementById('hey')
-        // innerDiv.style.backgroundColor = "purple"
-        // innerDiv.style.fontSize = "35px"
+        console.log("=== SESSION 4: DOM & ARRAY METHODS ===");
 
-        //getAttribute
+        // ==========================================================================
+        // 1. DOM SELECTION, CONTENT, AND STYLE MANIPULATION
+        // ==========================================================================
 
-        //setAttribute
+        /*
+         * CONCEPT: Document Object Model (DOM) Selection & Mutation
+         * 
+         * Simple Words Definition: 
+           JavaScript can select HTML tags on the page, change their text/HTML content, 
+           and modify their visual styling directly.
+         * 
+         * Interview Prep Definition: 
+           The DOM is an object-oriented node-tree representation of an HTML document. 
+           Methods like 'document.getElementById()' retrieve element node references, 
+           allowing dynamic DOM tree modification via 'innerHTML' and CSS style object mutation.
+         */
 
-        function change() {
-            let image = document.getElementById('img')
-            image.style.transition = "1s linear"
-            image.setAttribute('src', 'https://media.istockphoto.com/id/1171712711/photo/supernova-explosion-in-space.jpg?s=612x612&w=0&k=20&c=7fwusg4bEZ47MWHKTudqAr6DZu3DhOfkowlPrl6d39E=')
+        // Line 1: Select the element with ID 'main' from the HTML document
+        let sDiv = document.getElementById('main');
+
+        // Line 2: Dynamically insert HTML markup inside the selected 'sDiv' container
+        sDiv.innerHTML = "<div id='hey'> Hey </div>";
+
+        // Line 3: Mutate inline CSS style properties of sDiv directly via JS
+        sDiv.style.color = "cyan";
+        sDiv.style.borderLeft = "5px solid cyan";
+        sDiv.style.borderRight = "5px solid purple";
+        sDiv.style.borderBottom = "5px solid beige";
+        sDiv.style.borderTop = "5px solid lightblue";
+
+        // Line 4: Select the newly created child div with ID 'hey'
+        let innerDiv = document.getElementById('hey');
+
+        // Line 5: Apply inline CSS background-color and font-size styling to innerDiv
+        innerDiv.style.backgroundColor = "purple";
+        innerDiv.style.fontSize = "35px";
+
+
+        // ==========================================================================
+        // 2. DOM ATTRIBUTES & EVENT HANDLERS
+        // ==========================================================================
+
+        /*
+         * CONCEPT: HTML Attributes (getAttribute / setAttribute)
+         * 
+         * Simple Words Definition: 
+           Methods to read or update HTML attributes (like img src, href, id, or alt) on a webpage.
+         * 
+         * Interview Prep Definition: 
+           'getAttribute(attrName)' reads the string value of a specified element attribute node. 
+           'setAttribute(attrName, value)' updates or creates an attribute node, triggering 
+           browser re-renders for reactive attributes like 'src'.
+         */
+
+        // Function invoked when clicking "Click to change" button
+        function changeImage() {
+            // Line 6: Get reference to the image element
+            let image = document.getElementById('img');
+
+            // Line 7: Add dynamic CSS smooth transition effect
+            image.style.transition = "1s linear";
+
+            // Line 8: Update the 'src' attribute to load a new image URL
+            image.setAttribute('src', 'https://media.istockphoto.com/id/1171712711/photo/supernova-explosion-in-space.jpg?s=612x612&w=0&k=20&c=7fwusg4bEZ47MWHKTudqAr6DZu3DhOfkowlPrl6d39E=');
         }
 
-        function reverse() {
-            let image = document.getElementById('img')
-            image.style.transition = "1s linear"
-            image.setAttribute('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4OAugpFArNot9ly2idC95xS6nXIYRISzIJYtTdoJDPw&s=10')
+        // Function invoked when clicking "Reverse" button
+        function reverseImage() {
+            // Line 9: Get reference to the image element
+            let image = document.getElementById('img');
+
+            // Line 10: Apply CSS smooth transition
+            image.style.transition = "1s linear";
+
+            // Line 11: Revert 'src' attribute back to the original image URL
+            image.setAttribute('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4OAugpFArNot9ly2idC95xS6nXIYRISzIJYtTdoJDPw&s=10');
         }
 
-        // Array Methods
 
-        li = [11, 22, 33, 44, 55, 66]
+        // ==========================================================================
+        // 3. ARRAY MUTATOR METHODS (push, pop, shift, unshift, splice)
+        // ==========================================================================
 
-        li.push(345, 333)
-        console.log("Added two values using push()", li)
+        /*
+         * CONCEPT: Basic Array Mutation Methods
+         * 
+         * Simple Words Definition: 
+           Built-in array tools to add or remove items from the beginning or end of a list.
+         * 
+         * Interview Prep Definition: 
+           Methods that mutate the array in-place. 
+           - push(): Appends elements to the end; returns new length.
+           - pop(): Removes the last element; returns removed element.
+           - shift(): Removes the first element; returns removed element.
+           - unshift(): Prepends elements to the beginning; returns new length.
+         */
 
-        li.pop()
-        console.log("Deleted last value using pop()", li)
+        let li = [11, 22, 33, 44, 55, 66];
 
-        li.shift()
-        console.log("Removed first value using shift()", li)
+        // Line 12: push() -> Adds 345 and 333 to the END of the array
+        li.push(345, 333);
+        console.log("Added two values using push():", li); // [11, 22, 33, 44, 55, 66, 345, 333]
 
-        li.unshift()
-        console.log("Get the first removed value using unshift()", li)
+        // Line 13: pop() -> Removes the LAST element (333) from the array
+        let poppedValue = li.pop();
+        console.log("Deleted last value using pop():", li, "| Removed Value:", poppedValue);
 
-        li.unshift()
-        console.log("To replace the first", li)
+        // Line 14: shift() -> Removes the FIRST element (11) from the start of the array
+        let shiftedValue = li.shift();
+        console.log("Removed first value using shift():", li, "| Removed Value:", shiftedValue);
 
+        /*
+         * CORRECTION NOTE:
+         * In original code, unshift() was called empty: li.unshift().
+         * unshift() requires argument(s) to add elements to the START of an array.
+         */
 
-        // SPLICE 
+        // Line 15: unshift(value) -> Prepends a new value (100) to the BEGINNING of the array
+        li.unshift(100);
+        console.log("Added value to beginning using unshift():", li);
 
-        // add
-        li.splice(1, 0, 888)
-        console.log("Added using splice: ", li)
-
-        // delete
-        li.splice(1, 4)
-        console.log("delete using splice: ", li)
-
-        // replace
-        li.splice(1, 1, 345)
-        console.log("Replaced using splice: ", li)
-
-
-        // JOIN method
-
-        const str = li.join('_')
-        console.log("Join using _ => ", str)
-
-
-        // Reverse()
-
-        const rev = li.reverse()
-        console.log("Reverse => ", rev)
-
-        // sort()
-
-        const sortArray = ["1", '2', '3', '4', '5', '6']
-
-        // Q) access the second last element from the array
-
-        console.log(li[li.length - 2])
+        // Line 16: unshift(value) -> Replaces/Adds another value (999) to the start
+        li.unshift(999);
+        console.log("Added another value to start using unshift():", li);
 
 
+        /*
+         * CONCEPT: Splice Method (splice)
+         * 
+         * Simple Words Definition: 
+           A Swiss Army knife array method used to add, remove, or replace elements at any index position.
+         * 
+         * Interview Prep Definition: 
+           A destructive array method with signature 'splice(start, deleteCount, ...items)'. 
+           It modifies the original array in-place and returns an array of removed elements.
+         */
 
-        // For each method use different array list
+        // Line 17: Splice Add -> Insert 888 at index 1 without deleting anything (deleteCount = 0)
+        li.splice(1, 0, 888);
+        console.log("Added using splice(1, 0, 888):", li);
+
+        // Line 18: Splice Delete -> Delete 4 elements starting from index 1
+        li.splice(1, 4);
+        console.log("Deleted 4 items using splice(1, 4):", li);
+
+        // Line 19: Splice Replace -> Delete 1 item at index 1 and insert 345 in its place
+        li.splice(1, 1, 345);
+        console.log("Replaced item using splice(1, 1, 345):", li);
+
+
+        // ==========================================================================
+        // 4. ARRAY CONVERSION, REVERSAL, SORTING & ACCESS
+        // ==========================================================================
+
+        /*
+         * CONCEPT: Join, Reverse, Sort & Indexing
+         * 
+         * Simple Words Definition: 
+           - join(): Turns an array list into one long string.
+           - reverse(): Flips the array backwards.
+           - sort(): Rearranges elements in order.
+         * 
+         * Interview Prep Definition: 
+           - join(separator): Concatenates all elements into a string separated by a specified delimiter string.
+           - reverse(): Reverses elements in-place in O(n) time.
+           - sort([compareFunction]): Sorts array elements in-place. Default behavior converts elements 
+             to strings and sorts by UTF-16 code unit order.
+         */
+
+        // Line 20: join() -> Converts array into string separated by '_'
+        const str = li.join('_');
+        console.log("Joined string using '_':", str);
+
+        // Line 21: reverse() -> Flips elements of array in-place
+        const rev = li.reverse();
+        console.log("Reversed Array:", rev);
+
+        // Line 22: sort() -> Sorting arrays
+        const stringArray = ["banana", "apple", "cherry"];
+        stringArray.sort(); // Default alphabetical sort
+        console.log("Alphabetically Sorted String Array:", stringArray);
+
+        // Note on Numeric Sorting: Default sort() converts numbers to strings ("10" comes before "2")
+        const numberArray = [40, 100, 1, 5, 25, 10];
+        numberArray.sort((a, b) => a - b); // Numeric ascending sort callback function
+        console.log("Numerically Sorted Array:", numberArray);
+
+        // Line 23: Accessing the second-to-last element from an array
+        // Formula: array[array.length - 2]
+        console.log("Second last element from array 'li':", li[li.length - 2]);
+
+
+        // ==========================================================================
+        // 5. ARRAY ITERATION (forEach Method)
+        // ==========================================================================
+
+        /*
+         * CONCEPT: Array forEach Method
+         * 
+         * Simple Words Definition: 
+           A loop shortcut that executes a function once for every item in an array.
+         * 
+         * Interview Prep Definition: 
+           An iterative array prototype method that executes a provided callback function 
+           once for each array element in ascending order. Unlike map(), forEach returns undefined.
+         */
+
+        const sampleFruits = ["Apple", "Mango", "Banana", "Orange"];
+
+        console.log("--- Iterating array using forEach ---");
+        sampleFruits.forEach((fruit, index) => {
+            console.log(`Item at index ${index}: ${fruit}`);
+        });
+
     </script>
 </body>
 
