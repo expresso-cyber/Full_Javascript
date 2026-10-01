@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Color</title>
+</head>
+
+<style>
+    #btns{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .btn{
+        font-size: larger;
+        border: none;
+        border-bottom: 0.1px ridge grey;
+        transition: all 0.2s linear;
+    }
+
+    .btn:hover{
+        background-color: lightblue;
+    }
+
+    .btn:active{
+        transition: none;
+        background-color: rgb(250, 185, 185);
+    }
+</style>
+
+<body>
+    <div id="btns">
+        <button class="btn" id="btn1" onclick="changeColor('Red')">Red</button>
+        <button class="btn" id="btn2" onclick="changeColor('Green')">Green</button>
+        <button class="btn" id="btn3" onclick="changeColor('blue')">blue</button>
+        <button class="btn" id="btn4" onclick="changeColor('Yellow')">Yellow</button>
+    </div>
+
+    <script>
+        function changeColor(color) {
+            let body = document.body
+            body.style.backgroundColor = color
+        }
+
+        
+    </script>
+</body>
+
+</html>

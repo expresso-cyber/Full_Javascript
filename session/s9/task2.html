@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter with actions</title>
+    <style>
+        #main {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-direction: column;
+
+        }
+
+        .btn {
+            font-size: larger;
+            border: none;
+            border-bottom: 0.1px ridge grey;
+            transition: all 0.2s linear;
+            padding: 10px;
+        }
+
+        .btn:hover {
+            background-color: lightblue;
+        }
+
+        .btn:active {
+            transition: none;
+            background-color: rgb(250, 185, 185);
+        }
+
+        #counter{
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <p id="counter">0</p>
+        <div>
+            <button class="btn" id="btn1" onclick="decrease(1)">Decrement</button>
+            <button class="btn" id="btn2" onclick="reset()">Reset</button>
+            <button class="btn" id="btn3" onclick="increase(1)">Increase</button>
+        </div>
+    </div>
+
+    <script>
+        function increase(num) {
+            let count = document.getElementById('counter')
+            let currentNum = Number(count.textContent)
+            count.textContent = currentNum+num
+        }
+        function decrease(num) {
+            let count = document.getElementById('counter')
+            let currentNum = Number(count.textContent)
+            count.textContent = currentNum-num
+        }
+
+        function reset(){
+            let count = document.getElementById('counter')
+            count.textContent = 0
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        nav{
+            width: 100%;
+            background-color: rgb(61, 59, 59);
+            padding: 15px;
+        }
+
+        ul{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            list-style-type: none;
+        }
+
+        ul li{
+            text-decoration: none;
+            cursor: pointer;
+            padding: 10px;
+            font-family: 'Fira Code', monospace;
+            background-color: rgb(232, 225, 225);
+            border-radius: 10px;
+            color: black;
+        }
+
+        
+        .content{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content p{
+            margin: 50px;
+            font-size: 80px;
+            text-align: center;
+            animation: letter 2s ease-in-out infinite alternate;
+            transform-origin: left;
+            transition: 2s all ease-in-out;
+        }
+        
+        @keyframes letter {
+            0%{
+                background: linear-gradient(220deg, rgb(238, 115, 115), rgb(85, 85, 210));
+                -moz-background-clip: text;
+                color: transparent;
+                background-clip: text;
+            }
+            100%{
+                background: linear-gradient(10deg, rgb(238, 199, 115), rgb(227, 119, 47));
+                -moz-background-clip: text;
+                color: transparent;
+                background-clip: text;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li id="li1" onclick="show('Home')">Home</li>
+            <li id="li2" onclick="show('About')">About</li>
+            <li id="li4" onclick="show('Blog')">Blog</li>
+            <li id="li3" onclick="show('Contact')">Contact</li>
+        </ul>
+    </nav>
+    <div class="content">
+        <p id="para">Home</p>
+    </div>
+
+    <script>
+
+        function show(text){            
+            let para = document.getElementById("para")
+            para.textContent = text
+        }
+
+    </script>
+</body>
+</html>

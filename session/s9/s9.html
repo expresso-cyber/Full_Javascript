@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 9</title>
+    <script src="s9.js"></script>
+    <style>
+        .card p{
+            display: none;
+        }
+
+        .card h1{
+            font-size: 15px;
+        }
+
+        .ask{
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 1px solid black;
+            gap: 20px;
+        }
+
+        .card{
+            cursor: pointer;
+            padding: 10px;
+            width: 80%;
+            background-color: beige;
+            margin: 10px;
+        }
+
+        .card:active{
+            background-color: rgb(235, 174, 174);
+        }
+    </style>
+</head>
+<body>
+    <div class="ask">
+        <div class="card q1" onclick="show(1)">
+            <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque, non.</h1>
+            <p id="ans1" class="ans">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, quos.</p>
+        </div>
+        <div class="card q2" onclick="show(2)">
+            <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque, non.</h1>
+            <p id="ans2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, quos.</p>
+        </div>
+        <div class="card q3" onclick="show(3)">
+            <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque, non.</h1>
+            <p id="ans3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, quos.</p>
+        </div>
+    </div>
+</body>
+</html>
